@@ -1,0 +1,51 @@
+version: "3.8"
+services:
+
+    mysql_db:
+      image: mysql:5.7
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_DATABASE=world_explorer
+        - MYSQL_USER=root
+        - MYSQL_PASSWORD=root
+      ports:
+           - "3307:3306"
+
+    angular-service:
+        container_name: world-explorer-app
+        build: ./Frontend/world-explorer-app
+        ports:
+           - "4200:80"
+
+
+    service-registry:
+       image: service-registry
+       build: ./Backend/service-registry
+       ports:
+           - "8761:8761"
+       restart: always
+
+    gateway-service:
+       image: gateway-service
+       build: ./Backend/gateway-service
+       ports:
+           - "8080:8080"
+       restart: always
+
+    user-service:
+       image: user
+       build: ./Backend/WorldExplorerApp-User-Backend
+       ports:
+           - "8084:8084"
+       restart: always
+       depends_on:
+            - mysql_db
+
+    bookmark-service:
+       image: bookmark
+       build: ./Backend/WorldExplorerApp-Bookmark-Backend
+       ports:
+           - "8082:8082"
+       restart: always
+       depends_on: 
+            - mysql_db
