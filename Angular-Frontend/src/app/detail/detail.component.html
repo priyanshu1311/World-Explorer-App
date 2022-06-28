@@ -1,0 +1,72 @@
+<h1 style="color: aqua">Hello</h1>
+
+<div *ngFor="let country of data" class="country">
+  <div class="country-layout">
+    <img [src]="country.flags.svg" />
+    <div class="country-detail">
+      <h3>{{ country.name.common }}</h3>
+
+      <div class="country-info">
+        <div class="country-section">
+          <p>
+            <strong>Area:</strong>
+            {{ country.area }} KM<sup>2</sup>
+          </p>
+          <p>
+            <strong>Population:</strong>
+            {{ country.population }}
+          </p>
+          <p>
+            <strong>Region:</strong>
+            {{ country.region }}
+          </p>
+          <p>
+            <strong>Sub Region:</strong>
+            {{ country.subregion }}
+          </p>
+          <p>
+            <strong>Capital:</strong>
+            {{ country.capital }}
+          </p>
+        </div>
+
+        <div class="country-section">
+          <p>
+            <strong>Top Level Domain:</strong>
+            {{ country.tld }}
+          </p>
+          <p>
+            <strong>Currencies:</strong>
+          </p>
+          <div *ngFor="let item of country.currencies | keyvalue">
+            <p *ngFor="let it of item.value | keyvalue">
+              <b>{{ it.key }}</b
+              >:<b>{{ it.value }}</b>
+            </p>
+          </div>
+          <p>
+            <strong>Languages:</strong>
+          </p>
+          <div *ngFor="let item of country.languages | keyvalue">
+            {{ item.value }}
+          </div>
+        </div>
+      </div>
+      <div class="border-countries">
+        <p><strong>Border Countries:</strong></p>
+        <!-- <div
+          *ngIf="borderCountries$ | async; let borderCountries"
+          class="border-countries-buttons"
+        >
+          <div
+            *ngFor="let borderCountry of borderCountries"
+            class="button shadow"
+            [routerLink]="'/' + borderCountry.name"
+          >
+            {{ borderCountry.name }}
+          </div>
+        </div>-->
+      </div>
+    </div>
+  </div>
+</div>

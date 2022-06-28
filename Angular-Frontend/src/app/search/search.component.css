@@ -1,0 +1,192 @@
+
+.container{
+
+  width: 60%;
+
+  }
+
+img.lg{
+  margin-top: 3em;
+  margin-bottom: 1em;
+  border-radius: 100%;
+
+  width: 20%;
+  height: auto;
+}
+
+
+.image{
+
+  display: flex;
+justify-content: center;
+
+
+}
+
+
+.form-control,.btn{
+  padding: 0.5rem 25px;
+
+    font-size: 1.2rem;
+    font-weight: 400;
+
+    border-radius: 200px !important;
+}
+
+
+
+.main-div{
+
+  width:90%;
+  height: auto;
+margin-left: auto;
+margin-right: auto;
+margin-top: 5px;
+display: flex;
+direction: row;
+gap: 1em;
+}
+
+.image-data{
+ padding: 10px;
+  width: 50%;
+  height: auto;
+
+border-radius: 10px;
+background-color: white;
+  display: flex;
+justify-content: center;
+}
+
+
+.content{
+  width: 50%;
+  height: auto;
+
+  padding: 10px;border-radius: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.header{
+  margin-left: auto;
+  background-color: rgb(254, 252, 252);
+  margin-bottom: 0;
+  margin-top: 1em;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+
+
+  width: 90%;
+  margin-right: auto;
+  border-radius: 5px;
+  font-size: x-large;
+}
+
+.nm{
+  width: 93%;
+  text-align: center;
+}
+
+.image-data img{
+  width: 100%
+;
+height: 100%;
+    object-fit: fill;
+    border-radius: 10px;
+}
+.bbtn{
+  border: none;
+    background: white;
+}
+.toggler{
+
+  width: 98%;
+  display: flex;
+
+  justify-content: flex-end;
+
+}
+@media only screen and (max-width: 1100px)
+{
+  .container{
+
+    width: 80%;
+    }
+    .image-data img{
+      width: 100%
+;
+height: 100%;        object-fit: fill;
+    }
+}
+@media only screen and (max-width: 700px)
+{
+  .main-div{
+    display: flex;
+    flex-direction: column;
+  }
+  .image-data , .content{
+    width: 100%;
+  }
+  .form-control,.btn{
+    padding: 0.5rem 20px;
+
+      font-size: 1rem;
+      font-weight: 400;
+      border-radius: 100px;
+      border-radius: 200px !important;
+  }
+  img.lg{
+    width: 30%;
+  }
+}
+@media only screen and (max-width: 450px)
+{
+  .container{
+
+    width: 100%;
+    }
+}
+.example-container {
+margin: 0;
+padding: 0;
+
+  background: none;
+}
+
+mat-drawer-content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 43em;
+  min-width: 18em;
+}
+mat-drawer{
+  min-width: 20em;
+  padding-left: 1em;
+
+}
+
+.del:hover{
+  background-color: black;
+  color: white;
+  border-radius: 2px solid white;
+}
+
+.del{
+  margin-left: 5px;
+    background-color: #a76790;
+    border-radius: 100%;
+    width: 1.2em;
+    text-align: center;
+    color: white;
+}
+
+.mat-drawer-inner-container::-webkit-scrollbar {
+  display: none;
+}
+

@@ -1,0 +1,131 @@
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+  <mat-drawer style="background-color: #586176" #drawer [mode]="['over']">
+    <mat-chip-list *ngFor="let nm of country" aria-label="Country selection">
+      <mat-chip>
+        <mat-chip-avatar>
+          <img
+            src="{{ nm.image }}"
+            width="21"
+            alt="Photo of a Shiba Inu"
+          /> </mat-chip-avatar
+        ><span (click)="countryDet(nm.title)">{{ nm.title }}</span>
+
+        <span class="del" (click)="deleteBookMark(nm)">X</span>
+      </mat-chip>
+    </mat-chip-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="toggler position-fixed">
+      <button
+        mat-raised-button
+        (click)="drawer.toggle()"
+        (click)="getCountry()"
+      >
+        Bookmarks
+      </button>
+    </div>
+
+    <div class="container">
+      <div class="image">
+        <img class="lg" src="assets/logo.jpg" />
+      </div>
+      <form class="d-flex" [formGroup]="formGroup">
+        <input
+          id="searchBar"
+          formControlName="country"
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          [matAutocomplete]="auto"
+          (keyup.enter)="onEnter()"
+          (blur)="borderChangeFocusOut()"
+          (keypress)="borderChangeFocusIn()"
+        />
+
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let item of filteredOptions"
+            [value]="item"
+            (click)="onEnter()"
+          >
+            {{ item }}
+          </mat-option>
+        </mat-autocomplete>
+
+        <button class="btn btn-success" type="submit" (click)="onEnter()">
+          Search
+        </button>
+      </form>
+    </div>
+
+    <div *ngFor="let country of data" style="width: 100%">
+      <div class="header">
+        <div class="nm">
+          {{ country.name.common }}
+        </div>
+
+        <div>
+          <button
+            class="bbtn"
+            id="bbtn"
+            (click)="bookMark(country.name.common, country.flags.svg)"
+          >
+            <img width="20" height="21" src="../../assets/1289679474.svg" />
+          </button>
+        </div>
+      </div>
+
+      <div class="main-div">
+        <div class="image-data">
+          <img [src]="country.flags.svg" />
+        </div>
+        <div class="content">
+          <div class="country-section">
+            <p>
+              <strong>Area:</strong>
+              {{ country.area }} KM<sup>2</sup>
+            </p>
+            <p>
+              <strong>Population:</strong>
+              {{ country.population | number: "1.0" }}
+            </p>
+            <p>
+              <strong>Region:</strong>
+              {{ country.region }}
+            </p>
+            <p>
+              <strong>Sub Region:</strong>
+              {{ country.subregion }}
+            </p>
+            <p>
+              <strong>Capital:</strong>
+              {{ country.capital }}
+            </p>
+          </div>
+
+          <div class="country-section">
+            <p>
+              <strong>Top Level Domain:</strong>
+              {{ country.tld }}
+            </p>
+            <p>
+              <strong>Currencies:</strong>
+            </p>
+            <div *ngFor="let item of country.currencies | keyvalue">
+              <p *ngFor="let it of item.value | keyvalue">
+                {{ it.value }}
+              </p>
+            </div>
+            <p>
+              <strong>Languages:</strong>
+            </p>
+            <div *ngFor="let item of country.languages | keyvalue">
+              {{ item.value }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

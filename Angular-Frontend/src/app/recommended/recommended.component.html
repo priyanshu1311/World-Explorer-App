@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div
+      class="card"
+      *ngFor="let details of data | slice: 0:20; let i = index"
+      style="text-align: center"
+    >
+      <img [src]="details.flags.png" />
+      <!--[src]="image.thumbnailUrl"-->
+      <p class="card-text">
+        <b>Country Name : {{ details.name.common }}</b>
+        <br />
+        <b> Capital : {{ details.capital }}</b>
+        <br />
+        <b
+          >Area : {{ details.area }} KM<sup style="color: rgb(38, 0, 255)"
+            >2</sup
+          ></b
+        >
+        <br />
+        <b>Continent : {{ details.continents }}</b>
+        <br />
+      </p>
+    </div>
+  </div>
+</div>

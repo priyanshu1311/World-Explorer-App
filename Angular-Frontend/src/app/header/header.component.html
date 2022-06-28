@@ -1,0 +1,185 @@
+<!DOCTYPE >
+<!--
+
+<nav class="navbar sticky-top navbar-expand-lg">
+  <div class="container-fluid">
+    <div class="navbar-brand align-items-center">
+      <img
+        src="assets/logo.jpg"
+        alt=""
+        width="60"
+        height="auto"
+        class="d-inline-block align-text-center logo"
+      />
+      <span
+        class="title"
+        routerLink="/search"
+        *ngIf="authService.isAuthenticated()"
+      >
+        World Explorer</span
+      >
+      <span
+        class="title"
+        routerLink="/recommended"
+        *ngIf="!authService.isAuthenticated()"
+      >
+        World Explorer</span
+      >
+    </div>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mid-menu" id="navbarSupportedContent">
+      <div class="navbar-nav btn-div" *ngIf="!authService.isAuthenticated()">
+        <div>
+          <button class="btn btn-success" routerLink="login" (click)="recom()">
+            Log In
+          </button>
+        </div>
+        <div>
+          <button
+            class="btn btn-success"
+            routerLink="register"
+            (click)="recom()"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
+      <div class="navbar-nav btn-div" *ngIf="authService.isAuthenticated()">
+        <div class="nav-item">
+          <a class="nav-link">Welcome {{ getUserDetails() }}</a>
+        </div>
+
+        <button mat-button [matMenuTriggerFor]="menu">
+          <img
+            [src]="getProfilePic()"
+            width="50px"
+            height="50px"
+            style="
+              border-radius: 100%;
+              cursor: pointer;
+              border: 2px solid #04aa6d;
+            "
+          />
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <a class="dropdown-item" routerLink="profile" (click)="search()"
+              >Profile</a
+            >
+          </button>
+          <button mat-menu-item>
+            <button
+              class="btn btn-danger mx-auto"
+              (click)="authService.logoutUser()"
+            >
+              Logout
+            </button>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+-->
+
+<nav
+  class="navbar sticky-top navbar-expand-lg navbar-dark"
+  style="background: #51575b !important"
+>
+  <div class="navbar-brand align-items-center">
+    <img
+      src="assets/logo.jpg"
+      alt=""
+      width="60"
+      height="auto"
+      class="d-inline-block align-text-center logo"
+    />
+    <span
+      class="title"
+      routerLink="/search"
+      *ngIf="authService.isAuthenticated()"
+    >
+      World Explorer</span
+    >
+    <span
+      class="title"
+      routerLink="/recommended"
+      *ngIf="!authService.isAuthenticated()"
+    >
+      World Explorer</span
+    >
+  </div>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav btn-div" *ngIf="!authService.isAuthenticated()">
+      <div>
+        <button class="btn btn-success" routerLink="login">Log In</button>
+      </div>
+      <div>
+        <button class="btn btn-success" routerLink="register">Sign Up</button>
+      </div>
+    </div>
+    <div
+      class="navbar-nav btn-div align-items-center"
+      *ngIf="authService.isAuthenticated()"
+    >
+      <div class="nav-item">
+        <a class="nav-link" style="color: white"
+          >Welcome {{ getUserDetails() }}</a
+        >
+      </div>
+
+      <button mat-button [matMenuTriggerFor]="menu">
+        <img
+          [src]="getProfilePic()"
+          width="50px"
+          height="50px"
+          style="
+            border-radius: 100%;
+            cursor: pointer;
+            border: 2px solid #04aa6d;
+          "
+        />
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <button class="btn btn-secondary mx-auto" routerLink="profile">
+            Profile
+          </button>
+        </button>
+        <button mat-menu-item>
+          <button
+            class="btn btn-danger mx-auto"
+            (click)="authService.logoutUser()"
+          >
+            Logout
+          </button>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</nav>

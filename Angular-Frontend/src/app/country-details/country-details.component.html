@@ -1,0 +1,61 @@
+<div class="bb">
+  <button mat-raised-button (click)="back()" class="bb">BACK</button>
+</div>
+<div *ngFor="let country of data" style="width: 100%">
+  <div class="header">
+    <div class="nm">
+      <b>{{ country.name.common }}</b>
+    </div>
+  </div>
+
+  <div class="main-div">
+    <div class="image-data">
+      <img [src]="country.flags.svg" />
+    </div>
+    <div class="content">
+      <div class="country-section">
+        <p>
+          <strong>Area:</strong>
+          {{ country.area }} KM<sup>2</sup>
+        </p>
+        <p>
+          <strong>Population:</strong>
+          {{ country.population | number: "1.0" }}
+        </p>
+        <p>
+          <strong>Region:</strong>
+          {{ country.region }}
+        </p>
+        <p>
+          <strong>Sub Region:</strong>
+          {{ country.subregion }}
+        </p>
+        <p>
+          <strong>Capital:</strong>
+          {{ country.capital }}
+        </p>
+      </div>
+
+      <div class="country-section">
+        <p>
+          <strong>Top Level Domain:</strong>
+          {{ country.tld }}
+        </p>
+        <p>
+          <strong>Currencies:</strong>
+        </p>
+        <div *ngFor="let item of country.currencies | keyvalue">
+          <p *ngFor="let it of item.value | keyvalue">
+            {{ it.value }}
+          </p>
+        </div>
+        <p>
+          <strong>Languages:</strong>
+        </p>
+        <div *ngFor="let item of country.languages | keyvalue">
+          {{ item.value }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+
+
+.navbar {
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #766a6c;
+}
+
+
+
+.container-fluid{
+
+  margin-top: 0pt;
+
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+  margin-left: 1em;
+}
+
+
+img.logo{
+  border-radius: 100%;
+  border: 2px solid #04AA6D;
+}
+
+span.title{
+  font-size: x-large;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+
+
+}
+
+.nav-link{
+  font-size: large;
+}
+
+div.mid-menu{
+display: flex;
+justify-content: space-around;
+justify-content: flex-end;
+margin-right: 10em;
+
+
+
+}
+
+.btn-div{
+  display: flex;
+
+  gap:1em;
+
+width: 100%;
+  justify-content: flex-end;
+
+}
+.btn{
+  width: 90px;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 1000px)
+{
+  .btn-div{
+    flex-direction: column;
+    gap:0.5em;
+width: 100%;
+margin-left: 3%;
+
+  }
+   .mid-menu{
+    flex-direction: column;
+    gap:0.5em;
+
+
+
+
+  }
+  .btn{
+    width: 90px;
+    font-weight: 500;
+  }
+
+
+}
+@media only screen and (max-width: 500px)
+{
+  span.title{
+    font-size: large;
+  }
+}
