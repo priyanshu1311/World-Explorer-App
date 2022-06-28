@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: Gateway-Service
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+              allowedOrigins: "*"
+              allowedMethods: "*"
+              allowedHeaders: "*"
+      routes:
+      - id: userModule
+        uri: lb://user
+        predicates:
+        - Path=/user/**
+      - id: bookmarkModule
+        uri: lb://bookmark
+        predicates:
+        - Path=/bookmarks/**
+ 
+        
+eureka:
+  client:
+     serviceUrl:
+      defaultZone: http://localhost:8761/eureka
